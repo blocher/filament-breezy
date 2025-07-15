@@ -2,9 +2,9 @@
 
 namespace Jeffgreco13\FilamentBreezy\Livewire;
 
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Forms\Components\ViewField;
-use Filament\Forms\Components\Actions;
+use Filament\Schemas\Components\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Carbon\Carbon;
@@ -30,10 +30,10 @@ class BrowserSessions extends MyProfileComponent
         //
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 ViewField::make('browserSessions')
                     ->label(__('filament-breezy::default.profile.browser_sessions.label'))
                     ->hiddenLabel()

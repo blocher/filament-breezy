@@ -2,7 +2,7 @@
 
 namespace Jeffgreco13\FilamentBreezy\Livewire;
 
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -24,10 +24,10 @@ class UpdatePassword extends MyProfileComponent
         $this->user = Filament::getCurrentOrDefaultPanel()->auth()->user();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 TextInput::make('current_password')
                     ->label(__('filament-breezy::default.password_confirm.current_password'))
                     ->required()

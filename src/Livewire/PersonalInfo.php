@@ -2,9 +2,9 @@
 
 namespace Jeffgreco13\FilamentBreezy\Livewire;
 
-use Filament\Forms\Components\Group;
+use Filament\Schemas\Components\Group;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Notifications\Notification;
@@ -72,10 +72,10 @@ class PersonalInfo extends MyProfileComponent
             ->label(__('filament-breezy::default.fields.email'));
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema($this->getProfileFormSchema())
+        return $schema
+            ->components($this->getProfileFormSchema())
             ->columns(3)
             ->statePath('data');
     }
